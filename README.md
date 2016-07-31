@@ -4,7 +4,9 @@ Gnome 3 extension that displays BTC-E Bitcoin Trading Live Information. Based on
 Install
 
 cd ~/.local/share/gnome-shell/extensions/
+
 git clone https://github.com/fusselbart/btceticker
+
 # Check your gnome-shell Version.
 gnome-shell --version
 # Edit Manifest.json add your version if not allready there.
