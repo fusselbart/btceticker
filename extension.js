@@ -32,7 +32,6 @@ btc.gn = function(n){
 	return btc.curnames[n];
 }
 btc.jsn = function(url,func,th){
-	// p = {method:'GET|POST',url:'...'};
 	var request = Soup.Message.new('GET',url);
         _httpSession.queue_message(request, function(_httpSession, message) {
                 if (message.status_code !== 200) {
@@ -41,7 +40,6 @@ btc.jsn = function(url,func,th){
                 }
                 let res = request.response_body.data;
                 let resjsn = JSON.parse(res);
-		log(url);
 		func(res,th);
 	});	
 }
@@ -60,13 +58,6 @@ btc.get = function(){
 		btc.txt = ''+resjsn.btc_usd.last+'';
 		btc.settext(btc.txt);
 		btc.ljsn = resjsn;
-		
-		
-		for(b in button.menu._signalConnections[0]){
-			//log(b+' ('+typeof(button.menu._signalConnections[0][b]))+")";
-			//log(button.menu._signalConnections[0][b]);
-		}
-		log(button._onOpenStateChanged);
 		button.menu.removeAll();
 		let item = {};
 		let box = {};
@@ -107,9 +98,7 @@ btc.get = function(){
 				});
 				subsub = new PopupMenu.PopupMenuItem('LOADING ...',{style_class: 'def'});
 				itm[j].menu.addMenuItem(subsub);
-				for(it in itm[j].menu._signalConnections[0]){
-					//log(itm.menu._signalConnections[0][it]);
-				}
+				
 				itm[j].menu.name = j;
 				itm[j].menu.connect('open-state-changed',function(m,o){
 					//this.itm._parent.menu.blockSourceEvents = true;
@@ -135,7 +124,6 @@ btc.get = function(){
 							}
 						},this);
 					}
-					//log('button presed'+m+' // '+o);
 				});
 				vbox = new St.BoxLayout({vertical: true, pack_start: false});
 				label = new St.Label({text: ccur,name:'desc',style:'width:50px;font-weight:bold;color:#fff;font-size:14px;'});
@@ -145,15 +133,7 @@ btc.get = function(){
 				dollar.actor.add_actor(vbox);
 				f = true;
 			}
-			//if(match){
-				//log('BITCOIN');
-				//match = false;
-        			//dollar = new PopupMenu.PopupMenuItem('',{style_class: 'def'});
-        			//button.menu.addMenuItem(dollar);
 				btc.addItem(j,f);
-			//}else{
-				
-			//}
 		}
 	});
 }
@@ -243,7 +223,6 @@ function _go(){
 
 
 	});
-	log(button.menu.open);
 }
 
 function init() {
