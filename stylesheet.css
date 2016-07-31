@@ -1,0 +1,9 @@
+
+.helloworld-label {
+    font-size: 10px;
+    font-weight: normal;
+    color: #ffffff;
+    background-color: rgba(10,10,10,0.7);
+    border-radius: 5px;
+    padding: .5em;
+}
